@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Body from "./components/Body"
+import Header from "./components/Header"
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Watchpage from "./components/Watchpage"
+import Maincontainer from "./components/Maincontainer"
+// import Searchpage from "./components/Searchpage"
+import { lazy, Suspense } from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const Searchpage=lazy(()=>import('./components/Searchpage'))
+const appRouter=createBrowserRouter([
+   {
+    path:'/',
+    element:<Body/>,
+    children:[
+      {
+        path:'/watch',
+        element:<Watchpage/>
+      },
+      {
+        path:'/',
+        element:<Maincontainer/>
+      },
+      {
+        path:'search',
+        element:<Suspense><Searchpage/></Suspense>
+      }
+    ]
+   },
+   
+])
+
+
+function App(){
+
+  return(
+    <>
+        <div>
+         
+           <RouterProvider router={appRouter}/>
+        </div>
+    </>
+    )
 }
-
-export default App;
+export default App
