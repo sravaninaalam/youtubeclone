@@ -11,7 +11,7 @@ const Sidebar = () => {
         <div className='shadow-lg m-2 p-2 '>
             <ul className='m-2 p-2 font-normal'>
               <Link to='/'><li className='py-2 flex'><Home className='mr-2'/>Home</li></Link>  
-                <li className='py-2 flex'><Unlink className='mr-2'/>shorts</li>
+               <Link to='/shorts'><li className='py-2 flex'><Unlink className='mr-2'/>shorts</li></Link>
                 <li className='py-2 flex'><WalletCards className='mr-2'/>Subscriptions</li>
             </ul>
             <ul className='m-2 p-2 font-normal'>
