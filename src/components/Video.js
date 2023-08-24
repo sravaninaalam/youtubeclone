@@ -10,7 +10,7 @@ const Video = ({videos}) => {
     const toggle=useSelector(store=>store.sidebar.isMenuOpen)
   return (
    <>
-        <div className={toggle ?'w-[360px] shadow-sm' :'w-[400px] shadow-sm pl-5 m-2'}>
+        <div className={toggle ?'w-[360px] shadow-sm my-3' :'w-[400px] shadow-sm pl-5 m-2'}>
             <img src={thumbnails?.medium?.url} alt={title}/>
             <h3 className='font-bold'>{title}</h3>
             <h3>{channelTitle}</h3>
