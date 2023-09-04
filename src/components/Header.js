@@ -33,7 +33,7 @@ const Header = () => {
   }
   return (
    <>
-        <div className='grid grid-flow-col shadow-lg w-full p-5 m-2'>
+        <div className='grid grid-flow-col shadow-lg w-full p-5 m-2 sticky top-0 bg-white'>
             <img src={Hamburger_Icon} alt="hamburgericon" className='h-10 cursor-pointer my-2'
             onClick={()=>dispatch(toggleMenu())}/>
             <img src={Youtube_Icon} alt="logo" className='h-14 ml-1 mr-6'/>
