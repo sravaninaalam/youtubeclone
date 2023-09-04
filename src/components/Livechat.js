@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Chatmessage from './Chatmessage'
 import {useDispatch,useSelector} from 'react-redux'
 import {addMessage} from '../utils/redux/chatSlice'
-import { generateName, genereteRandomMessage } from '../utils/helper'
+import { generateName, genereteRandomMessage, getConversation } from '../utils/helper'
 const Livechat = () => {
     const dispatch=useDispatch()
     const [inputmsg,setInputmsg]=useState('')
@@ -12,7 +12,8 @@ const Livechat = () => {
         const i=setInterval(()=>{
            dispatch(addMessage({
             name:generateName(),
-            text:genereteRandomMessage(20)     
+            text:genereteRandomMessage(20)  
+             
           }
            ))
         },2000)

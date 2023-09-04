@@ -22,7 +22,7 @@ const Searchpage = () => {
   async function getSearchResult(){
     const data=await fetch(Search_By_Keyword+searchedtext)
     const json=await data.json()
-    console.log(json.items[0],"searchin")
+    // console.log(json.items[0],"searchin")
     setVideos(json.items)
   }
   return !videos?<Shimmer/>:(
