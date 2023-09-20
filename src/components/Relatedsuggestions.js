@@ -14,7 +14,7 @@ const Relatedsuggestions = () => {
     const data=await fetch(Youtube_Video_Api)
     const json=await data.json()
     setRelatedVideos(json?.items)
-    console.log("rltd",json?.items)
+    // console.log("rltd",json?.items)
   }
 
   if(!relatedvideos)return  <Shimmer/>
