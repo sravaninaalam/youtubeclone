@@ -48,18 +48,20 @@ const Header = () => {
                   placeholder='Search' 
                     onFocus={()=>{setShowsuggestions(true)
                        }}/>
-                  <button className='py-4 border border-gray-300'>{searchText.length>0 && <X onClick={()=>setSearchText('')} className=''/>}</button>
+                  <button type='submit' className='py-4 border border-gray-300'>{searchText.length>0 && <X onClick={()=>setSearchText('')} />}</button>
                   <Link to={'/search?search_query='+searchText}><button className='bg-gray-100 py-4 px-5  border border-gray-300 rounded-r-full'
-                   onClick={()=>{setShowsuggestions(false)}}>🔍</button></Link>
+                   onClick={()=>{
+setShowsuggestions(false)}}>🔍</button></Link>
                    <Mic className='ml-5 my-4'/>
               </form>
            
             {(showsuggestions && suggestedResult.length>1) &&  
-              <div className='absolute w-2/5 ml-5 p-3 rounded-xl shadow-lg  bg-white'>
+              <div className='w-2/5 absolute  rounded-xl shadow-lg ml-24 bg-white'>
                {suggestedResult.map(res=>(
                      <Link to={'/search?search_query='+res}><h3 key={res} className='p-2 hover:bg-gray-50 flex'onClick={()=>{setSearchText(res)
                           setShowsuggestions(false) }}
                   ><Search className='px-1'/>{res}</h3></Link>))}
+                 
               </div>}
              
              </div>

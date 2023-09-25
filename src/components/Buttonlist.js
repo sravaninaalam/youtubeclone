@@ -18,7 +18,7 @@ function Buttonslist(){
     return(
         <>
         <div className="flex">
-            {btn_list.map((btn,index)=><Link to={'search?='+btn} key={index}>
+            {btn_list.map((btn,index)=><Link to={'/search?search_query='+btn} key={index}>
             <button  onClick={()=>getResults(btn)}
              className="py-2 px-5 hover:bg-black hover:text-white  bg-slate-300 m-2 rounded-lg">
              {btn}</button></Link>)}
