@@ -34,7 +34,7 @@ const Header = () => {
   }
   return (
    <>
-        <div className='grid grid-flow-col grid-cols-12 shadow-lg p-5 m-2 sticky top-0 bg-white w-screen '>
+        <div className='grid grid-flow-col grid-cols-12 shadow-lg p-4 m-2 sticky top-0 bg-white w-screen '>
             <div className='col-span-1 flex '>
             <img src={Hamburger_Icon} alt="hamburgericon" className=' h-6 md:h-10 cursor-pointer my-2'
             onClick={()=>dispatch(toggleMenu())}/>
@@ -42,13 +42,13 @@ const Header = () => {
             </div>
            <div className='col-span-8 md:col-span-10  '>
             <form className='w-full md:w-4/5 ml-6 flex'>
-                  <input type='text' className='border border-gray-300 md:w-4/5 md:ml-14  rounded-l-full px-1 focus:outline-none'
+                  <input type='text' className='border border-gray-300 md:w-4/5 md:ml-14 rounded-l-full p-1 focus:outline-none'
                   value={searchText} onChange={(e)=>{setSearchText(e.target.value)
                  }}
                   placeholder='Search' 
                     onFocus={()=>{setShowsuggestions(true)
                        }}/>
-                  <button type='submit' className='py-4 border border-gray-300'>{searchText.length>0 && <X onClick={()=>setSearchText('')} />}</button>
+                  <button type='submit' className='py-1 border border-gray-300'>{searchText.length>0 && <X onClick={()=>setSearchText('')} />}</button>
                   <Link to={'/search?search_query='+searchText}><button className='bg-gray-100 py-4 px-5  border border-gray-300 rounded-r-full'
                    onClick={()=>{
 setShowsuggestions(false)}}>🔍</button></Link>
