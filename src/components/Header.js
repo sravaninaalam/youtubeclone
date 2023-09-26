@@ -48,10 +48,10 @@ const Header = () => {
                   placeholder='Search' 
                     onFocus={()=>{setShowsuggestions(true)
                        }}/>
-                  <button type='submit' className='py-1 border border-gray-300'>{searchText.length>0 && <X onClick={()=>setSearchText('')} />}</button>
-                  <Link to={'/search?search_query='+searchText}><button className='bg-gray-100 py-4 px-5  border border-gray-300 rounded-r-full'
+                  <button className='py-1 border border-gray-300'>{searchText.length>0 && <X onClick={()=>setSearchText('')} />}</button>
+                  <Link to={'/search?search_query='+searchText}><button type='submit' className='bg-gray-100 py-4 px-5  border border-gray-300 rounded-r-full'
                    onClick={()=>{
-setShowsuggestions(false)}}>🔍</button></Link>
+                            setShowsuggestions(false)}}>🔍</button></Link>
                    <Mic className='ml-5 my-4'/>
               </form>
            
