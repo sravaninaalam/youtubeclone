@@ -5,7 +5,7 @@ export const Youtube_Video_Api=
 "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key="+
   Google_Api_Key
 
-  export const Youtube_Suggestions= "https://corsproxy.io/?https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  export const Youtube_Suggestions= "https://api.allorigins.win/raw?url=https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
   // "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 
 
