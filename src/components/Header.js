@@ -2,7 +2,7 @@ import {useDispatch,useSelector} from 'react-redux'
 import { Hamburger_Icon, User_Icon, Youtube_Icon } from '../utils/icons'
 import { toggleMenu } from '../utils/redux/sidebarSlice'
 import { useEffect, useState } from 'react'
-import { Youtube_Suggestions } from '../utils/constants'
+import { Youtube_Suggestions_CORS } from '../utils/constants'
 import { Link } from 'react-router-dom'
 import { cachedData } from '../utils/redux/searchcache'
 import { Mic, Bell, Search,X } from 'lucide-react';
@@ -24,7 +24,7 @@ const Header = () => {
 
   const getSearchSuggestions=async()=>{
    
-    const data=await fetch(Youtube_Suggestions+searchText)
+    const data=await fetch(Youtube_Suggestions_CORS+searchText)
     const json=await data.json()
     // console.log(json[1])
     setSuggestedResult(json[1])
