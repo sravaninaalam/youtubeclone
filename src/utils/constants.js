@@ -14,7 +14,7 @@ export const Youtube_Video_Api=
   export const  Search_By_Id="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key="+
   Google_Api_Key+"&id="
 
-
+export const COMMENTS_API="https://youtube.googleapis.com/youtube/v3/comments?"+Google_Api_Key
   export const Live_Chat_Count=20
 
 
