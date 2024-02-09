@@ -6,6 +6,7 @@ import { Youtube_Suggestions_CORS } from '../utils/constants'
 import { Link } from 'react-router-dom'
 import { cachedData } from '../utils/redux/searchcache'
 import { Mic, Bell, Search,X } from 'lucide-react';
+import useCachedDebouncing from '../customhooks/useCachedDebouncing'
 
 const Header = () => {
   const[searchText,setSearchText]=useState('')
@@ -32,6 +33,7 @@ const Header = () => {
       [searchText]:json[1]
      }))
   }
+  
   return (
    <>
         <div className='grid grid-flow-col grid-cols-12 shadow-lg p-4 m-2 sticky top-0 bg-white w-screen '>

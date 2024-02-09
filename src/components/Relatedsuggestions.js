@@ -4,18 +4,11 @@ import Shimmer from './Shimmer'
 
 import Suggestedvideos from './Suggestedvideos'
 import { Link } from 'react-router-dom'
+import useRelatedVideos from '../customhooks/useRelatedVideos'
 
 const Relatedsuggestions = () => {
-  const[relatedvideos,setRelatedVideos]=useState([])
-  useEffect(()=>{
-      getRelatedVideos()
-  },[])
-  async function getRelatedVideos(){
-    const data=await fetch(Youtube_Video_Api)
-    const json=await data.json()
-    setRelatedVideos(json?.items)
-    // console.log("rltd",json?.items)
-  }
+
+  const relatedvideos=useRelatedVideos()
 
   if(!relatedvideos)return  <Shimmer/>
   return (

@@ -2,20 +2,11 @@ import {useEffect,useState} from 'react'
 import { Search_By_Id } from '../utils/constants'
 import { timeDifference,countViews } from '../utils/helper'
 import { ThumbsUp,ThumbsDown, Forward } from 'lucide-react';
+import useVideoInfo from '../customhooks/useVideoInfo';
 const Videodetails = ({videoId}) => {
-    const[videoInfo,setVideoInfo]=useState([])
+  
     const[showdescription,setShoeDescription]=useState(false)
-    useEffect(()=>{
-        getVideoDetails()
-    },[])
-    const getVideoDetails=async ()=>{
-        const data=await fetch(Search_By_Id+videoId)
-        const json=await data.json()
-        // console.log(json.items[0],"vd")
-        setVideoInfo(json?.items[0])
-    }
-
-
+    const videoInfo=useVideoInfo(videoId)
     const publishedDate=new Date(videoInfo?.snippet?.publishedAt)
   return !videoInfo?"": (
    <>

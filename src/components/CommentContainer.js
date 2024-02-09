@@ -3,6 +3,7 @@ import Comment from "./Comment"
 import { COMMENTS_API } from "../utils/constants"
 import Realcomments from './Realcomments'
 import { useSearchParams } from "react-router-dom"
+import useRealComments from "../customhooks/useRealComments"
 
 const commentsData=[
     {
@@ -83,18 +84,9 @@ const CommentList=({comments})=>{
 
 
 const CommentContainer = () => {
-  const[comments,setComments]=useState([])
   const [searchparams]=useSearchParams()
   const videoId=searchparams.get("v")
-  useEffect(()=>{
-   getCommentsData()
-  },[])
-  async function getCommentsData(){
-      const data=await fetch(COMMENTS_API+videoId)
-      const json=await data.json()
-      setComments(json?.items)
-  }
- 
+  const comments= useRealComments(videoId)
   if(!comments) return <CommentList comments={commentsData}/>
   return (
    <>

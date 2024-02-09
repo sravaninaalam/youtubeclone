@@ -3,21 +3,11 @@ import { Youtube_Video_Api } from '../utils/constants'
 import Shimmer from './Shimmer'
 import Video from './Video'
 import {Link} from 'react-router-dom'
+import useGetVideos from '../customhooks/useGetVideos'
 
 const VideoContainer = () => {
 
-    const [videos,setVideos]=useState([])
-    useEffect(()=>{
-        getVideos()
-    },[])
-    
-    async function getVideos(){
-        const data=await fetch(Youtube_Video_Api)
-        const json=await data.json()
-    
-        setVideos(json.items)
-    }
-    // console.log(videos)
+    const videos=useGetVideos()
     if(!videos)return <Shimmer/>
   return (
    <>

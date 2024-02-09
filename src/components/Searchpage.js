@@ -1,31 +1,18 @@
-import React, { useEffect,useState } from 'react'
 import {useSearchParams,Link} from 'react-router-dom'
-import { Search_By_Keyword } from '../utils/constants'
 import Shimmer from './Shimmer'
 import Searchcard from './Searchcard'
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../utils/redux/sidebarSlice'
 import Buttonslist from './Buttonlist'
+import useSearchPageResults from '../customhooks/useSearchPageResults'
 const Searchpage = () => {
   const [params]=useSearchParams()
   const searchedtext =params.get("search_query")
-  // console.log(searchedtext)
-  const[videos,setVideos]=useState([])
-
+ 
   const dispatch=useDispatch()
   dispatch(toggleMenu())
-
-  useEffect(()=>{
-    getSearchResult()
-  },[searchedtext])
-
-
-  async function getSearchResult(){
-    const data=await fetch(Search_By_Keyword+searchedtext)
-    const json=await data.json()
-    // console.log(json.items[0],"searchin")
-    setVideos(json.items)
-  }
+const videos=useSearchPageResults(searchedtext)
+ 
   return !videos?<Shimmer/>:(
     <div className='flex flex-col'>
     <Buttonslist/>

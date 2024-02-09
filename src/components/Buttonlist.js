@@ -5,10 +5,7 @@ import Searchcard from './Searchcard'
 function Buttonslist(){
     const btn_list=["All","Gaming","Live","React Js","Akshay Saini","Music","Cricket","Mix","Songs","Cooking","Mahishivan"]
     const[videos,setVideos]=useState([])
-    // useEffect(()=>{
-    //     getResults()
-    // },[])
-
+ 
     async function getResults(keyword){
         const data=await fetch(Search_By_Keyword+keyword)
         const json=await data.json()
